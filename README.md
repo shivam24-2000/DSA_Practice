@@ -1,1 +1,1 @@
-# GFG_DSA
+# DSA Practice
