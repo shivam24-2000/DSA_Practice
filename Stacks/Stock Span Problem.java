@@ -6,7 +6,7 @@ void printSpan(int arr[], int n)
   {
     int span = 1;
     
-    for(int j=i-1;j>0 && arr[j] <=arr[i[; j--)
+    for(int j=i-1;j>0 && arr[j] <=arr[i]; j--)
     {
       span++;
     }
