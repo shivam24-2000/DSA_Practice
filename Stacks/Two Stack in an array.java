@@ -1,6 +1,6 @@
 class TwoStack
 {
-  int size;
+  	int size;
 	int top1,top2;
 	int arr[] = new int[100];
 
