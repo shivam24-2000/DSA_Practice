@@ -25,9 +25,10 @@ class Solution
       else if ( c == ')')
       {
         while( st.peek() != '(')
+        {
           res += st.peek();
           st.pop();
-        
+        }
         st.pop();
       }
       else
