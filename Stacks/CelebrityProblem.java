@@ -1,3 +1,4 @@
+
 int celebrity(M[][], int n)
 {
   int a = 0, b = n-1;
