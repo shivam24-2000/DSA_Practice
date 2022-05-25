@@ -16,7 +16,7 @@ public static boolean Parenthesis( String str)
     else{
       if(s.isEmpty() == true)
         return false;
-      elseif( matching(s.peek(), str.charAt(i) ) == false)
+      else if( matching(s.peek(), str.charAt(i) ) == false)
         return false;
       else
         s.pop();
