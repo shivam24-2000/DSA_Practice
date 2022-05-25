@@ -42,7 +42,7 @@ class solution
                    int val = s.getvalue();
                    
                    for(int i=0;i<val;i++)
-                     last.add(s.getKey());
+                     Last1.add(s.getKey());
                  }
     
     return Last1;
