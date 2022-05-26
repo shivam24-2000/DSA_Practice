@@ -7,7 +7,7 @@ void printMax( int arr[], in k)
   
   for(int i=0;i<k;i++)
   {
-    while( !dq.isEmpty() && arr[i] <= arr[dq.peekLast()] )
+    while( !dq.isEmpty() && arr[i] >= arr[dq.peekLast()] )
       dq.removeLast();
     
     dq.addLast(i);
@@ -19,7 +19,7 @@ void printMax( int arr[], in k)
     while( !dq.isEmpty() && dq.peek() <= i-k)
       dq.removeLast(i);
     
-    while( !dq.isEmpty() && arr[i] <= arr[dq.peekLast()] )
+    while( !dq.isEmpty() && arr[i] >= arr[dq.peekLast()] )
       dq.removeLast(i);
     
     dq.addLast(i);
