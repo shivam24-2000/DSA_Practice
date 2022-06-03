@@ -40,3 +40,43 @@ int BFSDis(ArrayList<ArrayList<Integer>> adj, int v)
   }
   return count;
 }
+
+
+// if matrix is given
+ public void mark_visited(char[][]grid,int r,int c,int x,int y)
+   {
+       if(x<0 || x>=r || y<0 || y>=c || grid[x][y]!='1')
+       return;
+       
+       grid[x][y]='2';
+       
+       mark_visited(grid,r,c,x,y-1);
+       mark_visited(grid,r,c,x,y+1);
+       mark_visited(grid,r,c,x+1,y);
+       mark_visited(grid,r,c,x-1,y);
+       mark_visited(grid,r,c,x+1,y+1);
+        mark_visited(grid,r,c,x+1,y-1);
+         mark_visited(grid,r,c,x-1,y+1);
+          mark_visited(grid,r,c,x-1,y-1);
+       
+       
+   }
+   public int numIslands(char[][] grid) {
+       // Code here
+       int number=0;
+       int rows=grid.length;
+       int cols=grid[0].length;
+       for(int i=0;i<rows;i++)
+       {
+           for(int j=0;j<cols;j++)
+           {
+               if(grid[i][j]=='1')
+               {
+                   mark_visited(grid,rows,cols,i,j);
+                   number+=1;
+               }
+           }
+       }
+       return number;
+   
+   }
