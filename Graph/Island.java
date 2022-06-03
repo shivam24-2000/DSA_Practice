@@ -25,7 +25,7 @@ void BFS(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited)
 int BFSDis(ArrayList<ArrayList<Integer>> adj, int v)
 {
   int count = 0;
-  boolean visited[v+1];
+  boolean[] visited = new boolean[v];
   for(int i=0;i<v;i++)
   {
     visited[i] = false;
