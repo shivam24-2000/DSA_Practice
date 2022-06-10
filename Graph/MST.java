@@ -37,3 +37,4 @@ static int spanningTree(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj)
         }
         return res;
     }
+
