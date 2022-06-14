@@ -5,13 +5,13 @@ static boolean isSafe( int grid[][],int i, int j, int n)
             if(grid[i][k] == n || grid[k][j]==n) return false;
         }
         
-        // int s = (int)Math.sqrt(9);
-        int rs = i-i%3;
-        int cs = j-j%3;
+        int s = (int)Math.sqrt(9);
+        int rs = i-i%s;
+        int cs = j-j%s;
         
-        for(int k=0;k<3;k++)
+        for(int k=0;k<s;k++)
         {
-            for(int M=0;M<3;M++)
+            for(int M=0;M<s;M++)
             {
                 if(grid[k+rs][M+cs] == n) return false;
             }
