@@ -1,44 +1,52 @@
-static int countInv(int arr[], int l, int r)
-{
-    int res = 0;
-
-    while(l <r)
+static long convergeMerge(long arr[], long l, long mid, long h)
     {
-        int m = (l+r)/2;
-
-        res += countInv(arr, l , m);
-        res += countInv(arr, m+1,r);
-        res += convertMerge(arr, l,m,r);
-    }
-    return res;
-}
-
-static int convertMerge(int[] arr, int l, int m, int r)
-{
-    int n1 = m-l+1;
-    int m2 = r-m;
-
-    int[] left = new int[n1];
-    int[] right = new int[n2];
-
-    for(int i=0;i<n1;i++) left[i] = arr[l+i];
-    for(int i=0;i<n2;i++) right[i] = arr[m+1+i];
-
-    int i=0, j=0, k=l;
-
-    while( i < n1 && j < n2 )
-    {
-        if(left[i] <= right[j])
+        long p1=l,p2=mid,p3=0;
+        long[] temp =new long[(int)(h-l+1)];
+        long count = 0;
+        while(p1 < mid && p2 <= h)
         {
-            arr[k++] = left[i++];
+            if(arr[(int)p2] < arr[(int)p1])
+            {
+                count += mid-p1;
+                temp[(int)p3++] = arr[(int)p2++];
+            }else
+            {
+                temp[(int)p3++] = arr[(int)p1++];
+            }
         }
-        else{
-            arr[k++] = right[j++];
-            res = res + n1-i;
+        
+        while( p1 < mid )
+        {
+            temp[(int)p3++] = arr[(int)p1++];
         }
+        while( p2 <= h)
+        {
+            temp[(int)p3++] = arr[(int)p2++];
+        }
+        for(long i =0; i<(h-l+1); i++ )
+        {
+            arr[(int)(i+l)] = temp[(int)i];
+        }
+        return count;
     }
-    while(i<n1) arr[k++] = left[i++];
-    while(j<n2) arr[k++] = right[j++];
-
-    return res;
-}
+    static long converge(long arr[], long l, long h)
+    {
+        long res = 0;
+        
+        if( l < h)
+        {
+            long mid = l + (h-l)/2;
+            
+            res += converge(arr,l,mid);
+            res += converge(arr, mid+1, h);
+            
+            res += convergeMerge(arr, l, mid+1, h);
+        }
+        return res;
+        
+    }
+    static long inversionCount(long arr[], long N)
+    {
+        // Your Code Here
+        return converge(arr,0, N-1);
+    }
