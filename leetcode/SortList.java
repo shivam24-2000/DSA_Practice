@@ -1,35 +1,24 @@
 class Solution {
-    public ListNode reverse(ListNode head)
-    {
-        ListNode curr = head, next = null, prev = null;
-        
-        while(curr != null)
-        {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-    }
     public ListNode sortList(ListNode head) {
+        ArrayList<Integer> list = new ArrayList<>();
         
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-        
-        for(ListNode curr = head; curr!=null;curr= curr.next)
+        for(ListNode curr = head; curr != null; curr = curr.next)
         {
-            pq.add(curr.val);
+            list.add(curr.val);
         }
+        
+        Collections.sort(list, Collections.reverseOrder());
         
         ListNode res = new ListNode(1);
-        while(!pq.isEmpty())
+        
+        for(int i=0;i<list.size();i++)
         {
-            res.val = pq.poll();
+            res.val = list.get(i);
             res = new ListNode(1, res);
-            // res = res.next;
         }
         res = res.next;
-        return reverse(res);
+        
+        return res;
         
     }
 }
