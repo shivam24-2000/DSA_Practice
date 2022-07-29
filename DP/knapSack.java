@@ -25,7 +25,7 @@ static int KnapSackR(int W, int[] wt, int[] val, int n, int[][] dp)
             return dp[n][W] = Math.max(val[n-1] + KnapSackR(W- wt[n-1], wt, val, n-1, dp), KnapSackR( W, wt, val, n-1, dp) );
         }
     }
-    static int knapSack(int W, int wt[], int val[], int n) 
+static int knapSack(int W, int wt[], int val[], int n) 
     { 
          // your code here 
          int[][] dp = new int[n+1][W+1];
