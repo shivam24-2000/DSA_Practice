@@ -1,4 +1,4 @@
-public long minimumNumberOfCoins(int arr[],int n,int value)
+I public long minimumNumberOfCoins(int arr[],int n,int value)
     {
         // your code here
         int[] dp = new int[value+1];
