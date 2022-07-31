@@ -33,6 +33,7 @@ class Solution
 	    
 	    for(int i=0;i<=k;i++) dp[0][i] = 0;
 	   for(int i=0;i<=n;i++) dp[i][0] = 1;
+       
 	    subSetDiff(arr, n, k,dp);
 	    
 	    for(int i=k;i>=0;i--)
