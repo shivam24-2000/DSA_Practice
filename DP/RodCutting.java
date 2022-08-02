@@ -1,5 +1,4 @@
 class Solution{
-    
     public int cutRod(int price[], int N) {
         //code here
         int[][] dp = new int[N+1][N+1];
