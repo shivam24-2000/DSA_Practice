@@ -13,6 +13,7 @@ static int lcs(int x, int y, String s1, String s2)
         // your code here
         int[][] dp = new int[x+1][y+1];
         
+        for(int i=0;i<=x;i++ ) for(int j=0;j<=y;j++) if( i == 0 || j == 0) dp[i][j] = 0;
         for(int i=1; i<=x; i++)
             {
                 for(int j=1; j<=y; j++)
